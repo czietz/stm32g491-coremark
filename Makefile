@@ -29,8 +29,8 @@ BSPOBJS   = stm32g4xx_nucleo.bsp.o
 STARTUP   = $(STM32CUBE)/Drivers/CMSIS/Device/ST/STM32G4xx/Source/Templates/gcc/startup_stm32g491xx.s
 LINKERSCRIPT = STM32G491RETX_FLASH.ld
 
-$(PROJECT).elf: $(LOCALOBJS) $(HALOBJS) $(BSPOBJS) $(SUPOBJS)
-	$(CC) $(CFLAGS) $(LFLAGS) -o $@ $(STARTUP) $^
+$(PROJECT).elf: $(STARTUP) $(LOCALOBJS) $(HALOBJS) $(BSPOBJS)
+	$(CC) $(CFLAGS) $(LFLAGS) -o $@ $^
 
 %.hal.o: $(STM32CUBE)/Drivers/STM32G4xx_HAL_Driver/Src/%.c
 	$(CC) $(CFLAGS) -c -o $@ $<

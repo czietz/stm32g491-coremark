@@ -2,8 +2,9 @@ PROJECT = stm32g491_coremark
 STM32CUBE = ./STM32CubeG4
 
 CC = arm-none-eabi-gcc
-CFLAGS += -O3 -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16
-CFLAGS += -DFLAGS_STR=\"-Og\" -DITERATIONS=0
+OPTFLAGS += -O3 -mcpu=cortex-m4 -mthumb -mfloat-abi=hard -mfpu=fpv4-sp-d16
+CFLAGS += $(OPTFLAGS)
+CFLAGS += -DFLAGS_STR=\""$(OPTFLAGS)\"" -DITERATIONS=0
 
 CFLAGS += -DUSE_HAL_DRIVER
 CFLAGS += -DSTM32G491xx

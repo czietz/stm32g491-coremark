@@ -7,7 +7,7 @@ For a more compute-intensive version of CoreMark that uses larger datasets and e
 
 # About this port
 
-This is a **port for ARM Cortex-M4-based STM32G491RE microcontroller** on the [Nucleo-64 eval board](https://www.st.com/en/evaluation-tools/nucleo-g491re.html).
+This is a **port for Arm Cortex-M4-based [STM32G491RE](https://www.st.com/en/microcontrollers-microprocessors/stm32g4x1.html) microcontroller** on the [Nucleo-64 eval board](https://www.st.com/en/evaluation-tools/nucleo-g491re.html).
 To build it, you'll require the STM32CubeG4 MCU Firmware Package, provided as a submodule to this project:
 
 ```
@@ -15,6 +15,8 @@ git submodule update --init
 ```
 
 This port is configured to run at the maximum permissible clock speed of 170 MHz. Output is sent to the LPUART port, which is made available as a USB serial port (e.g., `/dev/ttyACM0`) via the on-board ST-LINK interface. The serial port configuration is: 115200 bit/s, 8 data bits, no parity, 1 stop bit.
+
+The following sections are from the original readme file and might not fully apply to this port. For the official CoreMark repository see https://github.com/eembc/coremark.
 
 # Building and Running
 	

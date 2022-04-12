@@ -5,6 +5,17 @@ CoreMark's primary goals are simplicity and providing a method for testing only 
 
 For a more compute-intensive version of CoreMark that uses larger datasets and execution loops taken from common applications, please check out EEMBC's [CoreMark-PRO](https://www.github.com/eembc/coremark-pro) benchmark, also on GitHub.
 
+# About this port
+
+This is a **port for ARM Cortex-M4-based STM32G491RE microcontroller** on the [Nucleo-64 eval board](https://www.st.com/en/evaluation-tools/nucleo-g491re.html).
+To build it, you'll require the STM32CubeG4 MCU Firmware Package, provided as a submodule to this project:
+
+```
+git submodule update --init
+```
+
+This port is configured to run at the maximum permissible clock speed of 170 MHz. Output is sent to the LPUART port, which is made available as a USB serial port (e.g., `/dev/ttyACM0`) via the on-board ST-LINK interface. The serial port configuration is: 115200 bit/s, 8 data bits, no parity, 1 stop bit.
+
 # Building and Running
 	
 To build and run the benchmark, type 

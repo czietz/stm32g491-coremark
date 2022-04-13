@@ -17,7 +17,7 @@ CFLAGS += -I$(STM32CUBE)/Drivers/CMSIS/Device/ST/STM32G4xx/Include
 CFLAGS += -I$(STM32CUBE)/Drivers/CMSIS/Include
 CFLAGS += -I$(STM32CUBE)/Drivers/BSP/STM32G4xx_Nucleo
 
-LFLAGS  = -Wl,-T$(LINKERSCRIPT) --specs=nano.specs
+LFLAGS  = -Wl,-T$(LINKERSCRIPT) -Wl,-Map=$(PROJECT).map --specs=nano.specs
 
 LOCALOBJS = core_list_join.o core_main.o core_matrix.o core_portme.o core_state.o core_util.o cvt.o ee_printf.o 
 LOCALOBJS += main.o stm32g4xx_hal_msp.o stm32g4xx_it.o system_stm32g4xx.o syscalls.o sysmem.o
@@ -45,6 +45,6 @@ $(PROJECT).elf: $(STARTUP) $(LOCALOBJS) $(HALOBJS) $(BSPOBJS)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
-	rm -rf *.o $(PROJECT).elf
+	rm -rf *.o $(PROJECT).elf $(PROJECT).map
 
 .PHONY: clean
